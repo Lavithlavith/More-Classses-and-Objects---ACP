@@ -3,11 +3,14 @@ class Circle():
         self.circle = ""
     
     def get_string(self):
+
         try :
             self.circle = float(input("Enter Radius in number:"))
         except Exception as e:
             print(" The value entered is not a numeric value..please enter numeric value",e)
             return 
+
+        self.circle = int(input("Enter Radius in number:")) 
     
     def area(self):
         print("Result in area is: ",self.circle * 3.14)
