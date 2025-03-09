@@ -1,25 +1,29 @@
-class Circle():
-    def __init__(self):
-        self.circle = ""
-    
-    def get_string(self):
+class Circle:
+    def _init_(self):
+        self.radius = None
 
-        try :
-            self.circle = float(input("Enter Radius in number:"))
-        except Exception as e:
-            print(" The value entered is not a numeric value..please enter numeric value",e)
-            return 
+    def get_radius(self):
+        try:
+            self.radius = float(input("Enter the radius (numeric value): "))
+        except ValueError:
+            print("Error: The value entered is not numeric. Please enter a numeric value.")
+            self.radius = None
 
-        self.circle = int(input("Enter Radius in number:")) 
-    
     def area(self):
-        print("Result in area is: ",self.circle * 3.14)
+        if self.radius is not None:
+            print("Area is:", 3.14 * self.radius ** 2)
+        else:
+            print("Cannot calculate area: radius is invalid.")
 
     def perimeter(self):
-        print("Result in perimeter is: ",self.circle * (2*3.14))
+        if self.radius is not None:
+            print("Perimeter is:", 2 * 3.14 * self.radius)
+        else:
+            print("Cannot calculate perimeter: radius is invalid.")
 
-str1 = Circle()
 
-str1.get_string()
-str1.area()
-str1.perimeter()
+# Usage
+circle = Circle()
+circle.get_radius()
+circle.area()
+circle.perimeter()
